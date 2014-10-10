@@ -79,13 +79,13 @@ var myFunctions = {
   flatten: function(array) {
     var newArr = [];//Making a new array that I want to push in too..
     for (var i = 0; i < array.length; i++) {//Loop through the length of the array that I enter.
-      if(Array.isArray(array[i])){//Goes through each array and see's if there's a nested array.
+      if(Array.isArray(array[i])){//Goes through each array index and see's if the type of  that index is an array.
         newArr = newArr.concat(myFunctions.flatten(array[i]));
       //If so I want to run the flatten function again starting from that new position
       //and everytime it occurs it'sI merge that array into newArr making it a clean array 
       }
       else {
-        newArr.push(array[i]);//If the value of the array is not nested it pushes that value into the newArr
+        newArr.push(array[i]);//If the index of the array is not an array that i push the value into new arr.
       }
     }
     return newArr; //Return the final result...
