@@ -21,21 +21,21 @@ describe('first', function() {
 describe('last', function() {
   var myArr;
   beforeEach(function () {
-    myArr = [7,10,14,2,8,32,1];
+    myArr = [7,10,14,2,8,32,1,1,412,23];
   });
   it('should pull the last element from an array', function() {
-    expect(myFunctions.last(myArr)).to.equal(1);
+    expect(myFunctions.last(myArr)).to.equal(23);
   });
 
   it('should accept an index argument', function() {
-    expect(myFunctions.last(myArr,3)).to.eql([8,32,1]);
+    expect(myFunctions.last(myArr,3)).to.eql([1,412,23]);
   });
   it('should return nothing if zero is passed in as the index', function() {
     expect(myFunctions.last(myArr,0)).to.eql([]);
   });
 
   it('should return all the array\'s elements if the index argument is larger than the length of the array',function() {
-    expect(myFunctions.last(myArr,15)).to.eql([1,32,8,2,14,10,7]);
+    expect(myFunctions.last(myArr,15)).to.eql([23,412,1,1,32,8,2,14,10,7]);
   });
 });
 
@@ -76,10 +76,9 @@ describe('contains', function() {
 
 });
 
-// describe('flatten', function() {
-//   it('can flatten nested arrays', function() {
-//     var nestedArray = [1, [2], [3, [[[4]]]]];
-
-//     expect(myFunctions.flatten(nestedArray)).to.eql([1,2,3,4]);
-//   });
-// });
+describe('flatten', function() {
+  it('can flatten nested arrays', function() {
+    var nestedArray = [1, [2], [3, [[[4]]]]];
+    expect(myFunctions.flatten(nestedArray)).to.eql([1,2,3,4]);
+  });
+});
