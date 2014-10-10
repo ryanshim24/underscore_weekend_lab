@@ -6,14 +6,14 @@ var expect = require("chai").expect;
 describe('first', function() {
   var myArr;
   beforeEach(function() {
-    myArr = [1,2,3];
+    myArr = [4,5,6];
   });
   it('should be able to pull out the first element of an array', function(){
     // expect(myFunctions.first([1,2,3])).to.equal(1);
-    expect(myFunctions.first(myArr)).to.equal(1);
+    expect(myFunctions.first(myArr)).to.equal(4);
   });
   it('should be able to accept a user-defined index first([1,2,3],2) should return [1,2]', function() {
-    expect(myFunctions.first(myArr, 2)).to.eql([1,2]);
+    expect(myFunctions.first(myArr, 2)).to.eql([4,5]);
   });
 });
 
@@ -21,21 +21,21 @@ describe('first', function() {
 describe('last', function() {
   var myArr;
   beforeEach(function () {
-    myArr = [1,2,3,4,5];
+    myArr = [7,10,14,2,8,32,1];
   });
   it('should pull the last element from an array', function() {
-    expect(myFunctions.last(myArr)).to.equal(5);
+    expect(myFunctions.last(myArr)).to.equal(1);
   });
 
   it('should accept an index argument', function() {
-    expect(myFunctions.last(myArr,3)).to.eql([5,4,3]);
+    expect(myFunctions.last(myArr,3)).to.eql([8,32,1]);
   });
   it('should return nothing if zero is passed in as the index', function() {
     expect(myFunctions.last(myArr,0)).to.eql([]);
   });
 
   it('should return all the array\'s elements if the index argument is larger than the length of the array',function() {
-    expect(myFunctions.last(myArr,6)).to.eql([5,4,3,2,1]);
+    expect(myFunctions.last(myArr,15)).to.eql([1,32,8,2,14,10,7]);
   });
 });
 

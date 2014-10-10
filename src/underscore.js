@@ -26,34 +26,36 @@ var myFunctions = {
     var length = array.length;
     if (n === undefined) {
       return array.pop();
-  }else if (n > length) {
-      var filtered = array.filter(function (num) {
-        return array.indexOf(num) < n;
-      });
-      return filtered.reverse();
-    }else if (n === 0) {
-      var zeroed = array.filter(function (num) {
-        return array.indexOf(num)<0;
-      });
-      return zeroed.reverse();
-    }else {
-    var sorted = array.filter(function (num) {
-      return array.indexOf(num) >= n-1;  
-    });
-    return sorted.reverse();
-  }
-    // } else if (n > length) {
-    //   for (var i=length-1; i>-1; i--) {
-    //     newArray.push(array[i]);
-    //   }
-    //   return newArray;
-    // } else {
-    //   length = array.length-1;
-    //   for (var j=0; n>j; j++) {
-    //     newArray.push(array[length-j]);
-    //   }
-    //   return newArray;
-    // }          
+  // }else if (n > length) {
+  //     var filtered = array.filter(function (num) {
+  //       return array.indexOf(num) < n;
+  //     });
+  //     return filtered.reverse();
+  //   }else if (n === 0) {
+  //     var zeroed = array.filter(function (num) {
+  //       return array.indexOf(num)<0;
+  //     });
+  //     return zeroed.reverse();
+  //   }else {
+  //   var sorted = array.filter(function (num) {
+  //     return array.indexOf(num) >= n;  
+  //   });
+  //   return sorted.reverse();
+  // }
+    } else if (n > array.length) {
+      for (var i=0; i<array.length; i++) {
+        newArray.push(array[i]);
+      }
+      newArray.reverse();
+      return newArray;
+    } else {
+      length = array.length-1;
+      for (var j=0; n>j; j++) {
+        newArray.push(array[length-j]);
+      }
+      newArray.reverse();
+      return newArray;
+    }          
 },
 
   // Produce a duplicate-free version of the array.
@@ -74,17 +76,11 @@ var myFunctions = {
   // a certain property in it. E.g. take an array of people objects
   // (which have a name and an age) and return an array of just their ages
   pluck: function(array, key) {
-    if (key === "name"){
-       var sorted = array.map(function(obj){
-        return obj.name;
-      });
-      return sorted;
-    }else {
-      var numbered =array.map(function(obj){
-        return obj.age;
-      });
-      return numbered;
+    newArr = [];
+    for (i=0; i<array.length; i++) {
+      newArr.push(array[i][key]);
     }
+    return newArr;
   },
 
  // Determine if the array contains a given value (using `===`).
